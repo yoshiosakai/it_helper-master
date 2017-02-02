@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resources :rents
   devise_for :users
   resources :reports
+  resources :free_posts
   get 'home/top'
   root 'home#top'
   get 'settled' => 'reports#settled'

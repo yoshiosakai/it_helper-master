@@ -1,0 +1,2 @@
+module FreePostsHelper
+end
