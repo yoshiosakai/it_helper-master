@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  role: MyString
+  name: MyString
+  date: 2016-09-28
+  time: 2016-09-28 14:16:28
+  machine_name: MyString
+  machine_number: MyString
+  problem: MyText
+  cause: MyText
+  try_solution: MyText
+
+two:
+  role: MyString
+  name: MyString
+  date: 2016-09-28
+  time: 2016-09-28 14:16:28
+  machine_name: MyString
+  machine_number: MyString
+  problem: MyText
+  cause: MyText
+  try_solution: MyText

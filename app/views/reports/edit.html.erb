@@ -1,0 +1,12 @@
+<h1>不具合対応</h1>
+
+<p>以下の不具合に対応します。</p>
+<%= render 'report_show', report: @report %>
+
+<%= render "show_file"%>
+
+<p>対応</p>
+<%= render 'edit_form', report: @report %>
+
+<%= link_to '不具合報告一覧へ', @report %> |
+<%= link_to '戻る', reports_path %>

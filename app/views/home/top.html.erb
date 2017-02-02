@@ -1,0 +1,28 @@
+<div class="page-header">
+  <h1>IT-Helper <small> IT機器管理システム</small></h1>
+</div>
+
+<div class="content">
+  <div class="row">
+    <div class="col col-lg-6">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <h3>機器を借りたい！</h3>
+          <p>各種ケーブルやマウスなど、機器を借りたい場合はこちらから</p>
+          <%= link_to "借りる", new_rent_path, class: "btn btn-default"%>
+        </div>
+      </div>
+    </div>
+    <div class="col col-lg-6">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <h3>不具合を報告したい！</h3>
+          <p>PCやモニター、ケーブルなどで不具合が発生した場合はこちらから</p>
+          <p>過去に起きた不具合はこちらから確認できます</p>
+          <p><%= link_to "未解決不具合一覧", reports_path, class: "btn btn-sm btn-warning"%> <%= link_to "解決済不具合一覧", settled_path, class: "btn btn-sm btn-info"%></p>
+          <%= link_to "報告する", new_report_path, class: "btn btn-default"%>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

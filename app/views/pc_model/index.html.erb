@@ -1,0 +1,50 @@
+<h3>PC不具合発生状況</h3>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>日付</th>
+      <th>機器ID</th>
+      <th>起こった不具合</th>
+      <th>起こった不具合（その他）</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @reports.each do |report| %>
+      <tr>
+        <td><%= report.date %></td>
+        <td><%= report.machine_number %></td>
+        <td><%= report.problem %></td>
+        <td><%= report.problem_other %></td>
+        <td><%= @pc_models.where(:pc_name => report.machine_number.downcase) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<h4>現在の社内PCの機種一覧</h4>
+<%= form_tag({controller: "pc_model", action: "import", method: "post"}, {multipart: true}) do %>
+  <%= file_field_tag :file %>
+  <%= submit_tag "オブジェクトを一括インポート" %>
+<% end %>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>id</th>
+      <th>機器ID</th>
+      <th>機種</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @pc_models.each do |pc| %>
+      <tr>
+        <td><%= pc.id %></td>
+        <td><%= pc.pc_name %></td>
+        <td><%= pc.pc_model %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

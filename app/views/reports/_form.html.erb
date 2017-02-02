@@ -1,0 +1,152 @@
+<%= form_for(report) do |f| %>
+
+  <%= render partial: "check_report_error", locals: {report: report} %>
+
+  <form class="form-horizontal">
+    <fieldset>
+
+      <!-- role -->
+      <div class="form-group">
+        <label class="col-lg-2 control-label">役割</label>
+        <div class="col-lg-10">
+          <div class="radio">
+            <label>
+              <%= f.radio_button :role, "社員", :id => 'role_w' %>
+              <%= f.label 'role_w', '社員' %>
+              <%= f.radio_button :role, "インターン", :id => 'role_i' %>
+              <%= f.label 'role_i', 'インターン' %>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <!-- name -->
+      <div class="form-group">
+        <label for="inputName" class="col-lg-2 control-label">報告者名</label>
+        <div class="col-lg-10">
+          <%= f.text_field :name,　class: "form-control", placeholder: "不具合を見つけた人" %>
+        </div>
+      </div>
+
+      <!-- urgency -->
+      <div class="form-group">
+        <label class="col-lg-2 control-label">緊急度</label>
+        <div class="col-lg-10">
+          <div class="radio">
+            <label>
+              <%= f.radio_button :urgency, "今すぐ直して欲しい", :id => 'error' %>
+              <%= f.label 'error', '今すぐ直して欲しい' %>
+              <%= f.radio_button :urgency, "業務に支障をきたすレベル", :id => 'warning' %>
+              <%= f.label 'warning', '業務に支障をきたすレベル' %>
+              <%= f.radio_button :urgency, "時間のあるときに見て欲しい", :id => 'want' %>
+              <%= f.label 'want', '時間のあるときに見て欲しい' %>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="inputDate" class="col-lg-2 control-label">不具合発生日</label>
+        <div class="col-lg-10">
+          <%= f.date_field :date, placeholder: @report.date, class: "form-control" %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="inputTime" class="col-lg-2 control-label">不具合発生時間</label>
+        <div class="col-lg-10">
+          <%= f.time_field :time, placeholder: @report.time, class: "form-control", placeholder: @report.time%>
+        </div>
+      </div>
+
+      <!-- machine_name -->
+      <div class="form-group">
+        <label class="col-lg-2 control-label">不具合発生機器</label>
+        <div class="col-lg-10">
+          <div class="radio">
+            <label>
+              <%= f.radio_button :machine_name, "PC", :id => 'pc' %>
+              <%= f.label 'pc', 'PC' %>
+              <%= f.radio_button :machine_name, "ケーブル", :id => 'cable' %>
+              <%= f.label 'cable', 'ケーブル' %>
+              <%= f.radio_button :machine_name, "モニター", :id => 'monitor' %>
+              <%= f.label 'monitor', 'モニター' %>
+              <%= f.radio_button :machine_name, "その他", :id => 'other' %>
+              <%= f.label 'other', 'その他' %>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <!-- machine_number -->
+      <div class="form-group">
+        <label for="inputMachineNumber" class="col-lg-2 control-label">機器番号</label>
+        <div class="col-lg-10">
+          <%= f.text_field :machine_number, placeholder: "CBHD-XXXX-XXXX",　class: "form-control" %>
+        </div>
+      </div>
+
+      <% if false %>
+      <!-- problem -->
+      <div class="form-group">
+        <label for="textArea" class="col-lg-2 control-label">発生不具合内容</label>
+        <div class="col-lg-10">
+          <%= f.select :problem, @faq, class: 'form-control'%>
+          「その他」の場合のみ記入
+          <%= text_area :problem_other, size: "24x3",　class: "form-control" %>
+        </div>
+      </div>
+      <% end %>
+
+      <!-- problem -->
+      <div class="form-group">
+        <label for="textArea" class="col-lg-2 control-label">発生不具合内容</label>
+        <div class="col-lg-10">
+          <%= f.select :problem, @faq, {}, class: 'form-control'%>
+        </div>
+      </div>
+
+      <!-- other problem-->
+      <div class="form-group">
+        <label for="textArea" class="col-lg-2 control-label">詳細説明</label>
+        <div class="col-lg-10">
+          <%= f.text_area :problem_other,　class: "form-control", size: "24x3" %>
+          <span class="help-block">その他の場合・詳しい問題がわかる場合は書いてください。</span>
+        </div>
+      </div>
+
+      <!-- Cause -->
+      <div class="form-group">
+        <label for="textArea" class="col-lg-2 control-label">不具合発生原因</label>
+        <div class="col-lg-10">
+          <%= f.text_area :cause,　class: "form-control", size: "24x3" %>
+          <span class="help-block">不具合が発生した原因がわかる場合は書いてください。</span>
+        </div>
+      </div>
+
+      <!-- try_solution -->
+      <div class="form-group">
+        <label for="textArea" class="col-lg-2 control-label">試した解決策</label>
+        <div class="col-lg-10">
+          <%= f.text_area :try_solution,　class: "form-control", size: "24x3" %>
+          <span class="help-block">自分で試したけど解決しなかった方法がある場合は書いてください。</span>
+        </div>
+      </div>
+
+      <!-- attached file -->
+      <div class="form-group">
+        <label for="textArea" class="col-lg-2 control-label">ファイルアップロード</label>
+        <div class="col-lg-10">
+          <%= f.file_field :file1,　class: "form-control" %>
+          <%= f.file_field :file2,　class: "form-control" %>
+          <%= f.file_field :file3,　class: "form-control" %>
+          <%= f.file_field :file4,　class: "form-control" %>
+          <span class="help-block">スクリーンショットなどがある場合は添付してください。（４件まで可能）</span>
+        </div>
+      </div>
+  </fieldset>
+
+  <div class="actions">
+    <%= f.submit "報告する",:class => "btn btn-info" %>
+  </div>
+<% end %>

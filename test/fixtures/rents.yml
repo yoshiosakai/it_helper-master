@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: MyString
+  machine: MyString
+  return_time: 2016-11-11 11:37:15
+  return: false
+
+two:
+  user: MyString
+  machine: MyString
+  return_time: 2016-11-11 11:37:15
+  return: false
