@@ -42,6 +42,8 @@
             <li><%= link_to "不具合報告", new_report_path  %></li>
             <li><%= link_to "不具合報告一覧", reports_path  %></li>
             <li><%= link_to "対応済不具合一覧", settled_path  %></li>
+            <li><%= link_to "フリー投稿", new_free_post_path  %></li>
+            <li><%= link_to "フリー投稿一覧", free_posts_path  %></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <% if user_signed_in?%>

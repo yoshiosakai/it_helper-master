@@ -1,0 +1,21 @@
+
+<p>
+<strong>投稿者:</strong>
+<%= @free_posts.name %>
+</p>
+
+<p>
+<strong>タイトル:</strong>
+<%= @free_posts.title %>
+</p>
+
+<p>
+<strong>詳細:</strong>
+<%= @free_posts.detail %>
+</p>
+
+<p>
+<strong>投稿日時:</strong>
+<%= @free_posts.updated_at %>
+</p>
+<%= link_to 'Back', free_posts_path %>
