@@ -1,6 +1,6 @@
 <% provide(:title, "対応済み不具合一覧") %>
 
-<h3>対応済み不具合一覧</h3>
+<h2>対応済み不具合一覧</h2>
 <p>過去に対応した不具合一覧です。ここを参照すれば、解決する不具合もあるかもしれません。</p>
 <table class="table table-striped">
   <thead>
@@ -37,3 +37,7 @@
     <% end %>
   </tbody>
 </table>
+
+
+
+<%= render 'free_posts/settled_index', free_posts: @free_posts %>

@@ -1,0 +1,2 @@
+class PostOperator < ApplicationRecord
+end

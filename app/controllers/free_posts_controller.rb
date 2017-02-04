@@ -1,10 +1,6 @@
 class FreePostsController < ApplicationController
 
   before_action :set_post, only: [:show,:edit,:update,:destroy]
-  
-  def settled
-    @free_posts = FreePost.all
-  end
 
   def set_post
     @free_posts = FreePost.find(params[:id])
@@ -49,7 +45,7 @@ class FreePostsController < ApplicationController
   end
 
   def post_params
-    params.require(:free_post).permit(:name,:title,:detail,:updated_at)
+    params.require(:free_post).permit(:name,:title,:detail,:updated_at,post_operator_attributes: [:free_post_id,:status, :name, :text])
   end
 
 end

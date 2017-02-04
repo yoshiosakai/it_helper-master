@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170202121040) do
+ActiveRecord::Schema.define(version: 20170204033344) do
 
   create_table "attached_files", force: :cascade do |t|
     t.string   "file_name"
@@ -42,6 +42,15 @@ ActiveRecord::Schema.define(version: 20170202121040) do
     t.string   "pc_model"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "post_operators", force: :cascade do |t|
+    t.integer  "free_post_id"
+    t.string   "name"
+    t.string   "status"
+    t.text     "memo"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   create_table "rents", force: :cascade do |t|
