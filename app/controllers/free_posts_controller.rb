@@ -1,6 +1,10 @@
 class FreePostsController < ApplicationController
 
   before_action :set_post, only: [:show,:edit,:update,:destroy]
+  
+  def settled
+    @free_posts = FreePost.all
+  end
 
   def set_post
     @free_posts = FreePost.find(params[:id])

@@ -1,0 +1,15 @@
+<% if free_posts.errors.any? %>
+  <div class="panel panel-danger">
+    <div class="panel-heading">
+      <h4>エラーが見つかりました</h4>
+    </div>
+    <p>必須項目を入力してください</p>
+    <% if false %>
+    <ul>
+    <% free_posts.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+    </ul>
+    <% end %>
+  </div>
+<% end %>
