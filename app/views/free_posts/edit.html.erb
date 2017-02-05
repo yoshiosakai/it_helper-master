@@ -16,6 +16,46 @@
   </tbody>
 </table>
 
-<%= render 'edit_form', free_posts: @free_posts %>
+<%= form_for(@free_posts) do |f| %>
+  <%= fields_for @post_operator do |of| %>
+  <!-- status -->
+  <div class="form-group">
+    <label class="col-lg-2 control-label">ステータス</label>
+    <div class="col-lg-10">
+      <div class="radio">
+        <label>
+          <%= of.radio_button :status, "未対応" %>
+          <%= of.label 'not_yet', '未対応' %>
+          <%= of.radio_button :status, "対応中" %>
+          <%= of.label 'during', '対応中' %>
+          <%= of.radio_button :status, "対応済"%>
+          <%= of.label 'finish', '対応済' %>
+        </label>
+      </div>
+    </div>
+  </div>
+
+  <!-- name -->
+  <div class="form-group">
+    <label for="inputName" class="col-lg-2 control-label">対応者名</label>
+    <div class="col-lg-10">
+      <%= of.text_field :name,　class: "form-control", placeholder: "不具合を対応している人" %>
+    </div>
+  </div>
+  <!-- memo -->
+  <div class="form-group">
+    <label for="textArea" class="col-lg-2 control-label">memo</label>
+    <div class="col-lg-10">
+      <%= of.text_area :memo,　class: "form-control", size: "24x3" %>
+      <span class="help-block">memo</span>
+    </div>
+  </div>
+
+    <div class="actions">
+      <%= f.submit "対応する",:class => "btn btn-info" %>
+    </div>
+
+  <% end %>
+<% end %>
 
 <%= link_to 'Back', free_posts_path %>

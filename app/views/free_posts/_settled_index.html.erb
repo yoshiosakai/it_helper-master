@@ -17,7 +17,11 @@
           <td><%= free_post.name %></td>
           <td><%= free_post.updated_at.strftime("%Y-%m-%d") %></td>
           <td><%= free_post.title %></td>
-          <td></td>
+
+
+          <td><% if free_post.post_operator.nil? %>未対応<% else %><%= free_post.post_operator.status %><% end %></td>
+
+
           <td><%= link_to "詳細",free_post %></td>
           <td><%= link_to "対応",edit_free_post_path(free_post) %></td>
           <td><%= link_to "削除",free_post, method: :delete,data:{confirm:"本当に削除しますか?" }%></td>

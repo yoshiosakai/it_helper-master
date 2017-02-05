@@ -1,3 +1,3 @@
 class FreePost < ApplicationRecord
-  has_one :operator
+  has_one :post_operator
 end

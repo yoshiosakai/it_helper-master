@@ -5,6 +5,7 @@ class ReportsController < ApplicationController
   def settled
     @reports = Report.all
     @free_posts = FreePost.all
+    @post_operator = PostOperator.all
   end
 
 

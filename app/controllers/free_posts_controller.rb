@@ -24,16 +24,20 @@ class FreePostsController < ApplicationController
   end
 
   def edit
+    @post_operator = PostOperator.find(params[:id])
   end
 
   def update
+    @post_operator = PostOperator.find(params[:id])
     respond_to do |format|
-      if @free_posts.update(post_params)
-        format.html{redirect_to @free_posts, notice: '内容が更新されました'}
+puts "3"
+      if @post_operator.update(operator_params)
+        format.html{redirect_to free_post_path, notice: '内容が更新されました'}
         format.json{head :no_content}
       else
+puts "7"
         format.html{render action:'edit'}
-        format.json{render action:@free_posts.errors,status: :unprocessable_entry}
+        format.json{render action:@post_operator.errors,status: :unprocessable_entry}
       end
     end
   end
@@ -45,7 +49,11 @@ class FreePostsController < ApplicationController
   end
 
   def post_params
-    params.require(:free_post).permit(:name,:title,:detail,:updated_at,post_operator_attributes: [:free_post_id,:status, :name, :text])
+    params.require(:free_post).permit(:name,:title,:detail,:updated_at)
+  end
+
+  def operator_params
+    params.require(:post_operator).permit(:id,:status,:name, :memo)
   end
 
 end
