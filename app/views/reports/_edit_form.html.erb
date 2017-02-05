@@ -1,0 +1,11 @@
+<%= form_for(report) do |f| %>
+  <%= render partial: "check_report_error", locals: {report: report} %>
+
+  <%= f.fields_for :operator, @report.operator || @report.build_operator do |of| %>
+    <%= render partial: "operator_form", locals: {of: of } %>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit "対応する",:class => "btn btn-info" %>
+  </div>
+<% end %>

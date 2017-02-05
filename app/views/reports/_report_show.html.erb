@@ -1,0 +1,34 @@
+
+<table class="table">
+  <thead>
+    <th>報告者属性</th>
+    <th>報告者名</th>
+    <th>報告日</th>
+    <th>報告時間</th>
+    <th>機器種別</th>
+    <th>機器番号</th>
+    <th>不具合</th>
+    <th>詳細</th>
+    <th>原因</th>
+    <th>試した解決策</th>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= @report.role %></td>
+      <td><%= @report.name %></td>
+      <td><%= @report.date %></td>
+      <td>
+        <% if @report.time.present? %>
+        <%= @report.time.strftime("%H:%M") %>
+        <% end %>
+      </td>
+      <td><%= @report.machine_name %></td>
+      <td><%= @report.machine_number %></td>
+      <td><%= @report.problem %></td>
+      <td><%= @report.problem_other %></td>
+      <td><%= @report.cause %></td>
+      <td><%= @report.try_solution %></td>
+    </tr>
+  </tbody>
+
+</table>

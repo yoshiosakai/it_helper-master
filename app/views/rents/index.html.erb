@@ -1,0 +1,28 @@
+<% provide(:title, "貸出一覧") %>
+
+<h2>機器貸し出し報告一覧</h2>
+<p>現在借りられている機器が確認できます。</p>
+<p><%= link_to '借りる', new_rent_path, class: "btn btn-info"%></p>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>借りた人</th>
+      <th>機器ID</th>
+      <th>返却予定時間</th>
+      <th>返却状況</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @rents.each do |rent| %>
+      <tr>
+        <td><%= rent.user %></td>
+        <td><%= rent.machine %></td>
+        <td><%= rent.created_at.strftime('%m/%d') %> <%= rent.return_time.strftime('%H:%M') %></td>
+        <td><%= link_to '返却', rent, method: :delete, data: { confirm: '返却しますか？' }, class:"btn btn-default" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

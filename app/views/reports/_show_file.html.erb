@@ -1,0 +1,32 @@
+
+<% if @report.file1.present? %>
+  <p>添付ファイルがあります：<%= @report.file1 %><p>
+  <% if ['.jpg','.jpeg','.gif','.png'].include?(File.extname(@report.file1)) %>
+    <%= image_tag "/image/#{@report.file1}", class: "show_image" %>
+  <% end %>
+    <%= link_to "添付ファイルをダウンロード", reports_download_download_path(@report, file: "file1"), :class => "btn btn-info" %>
+<% end %>
+
+<% if @report.file2.present? %>
+  <p>添付ファイルがあります：<%= @report.file2 %><p>
+  <% if ['.jpg','.jpeg','.gif','.png'].include?(File.extname(@report.file2)) %>
+    <%= image_tag "/image/#{@report.file2}", class: "show_image" %>
+  <% end %>
+    <%= link_to "添付ファイルをダウンロード", reports_download_download_path(@report, file: "file2"), :class => "btn btn-info" %>
+<% end %>
+
+<% if @report.file3.present? %>
+  <p>添付ファイルがあります：<%= @report.file3 %><p>
+  <% if ['.jpg','.jpeg','.gif','.png'].include?(File.extname(@report.file3)) %>
+    <%= image_tag "/image/#{@report.file3}", class: "show_image" %>
+  <% end %>
+    <%= link_to "添付ファイルをダウンロード", reports_download_download_path(@report, file: "file3"), :class => "btn btn-info" %>
+<% end %>
+
+<% if @report.file4.present? %>
+  <p>添付ファイルがあります：<%= @report.file4 %><p>
+  <% if ['.jpg','.jpeg','.gif','.png'].include?(File.extname(@report.file4)) %>
+    <%= image_tag "/image/#{@report.file4}", class: "show_image" %>
+  <% end %>
+    <%= link_to "添付ファイルをダウンロード", reports_download_download_path(@report, file: "file4"), :class => "btn btn-info" %>
+<% end %>

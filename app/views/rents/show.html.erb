@@ -1,0 +1,17 @@
+<p>
+  <strong>借りた人:</strong>
+  <%= @rent.user %>
+</p>
+
+<p>
+  <strong>機器ID:</strong>
+  <%= @rent.machine %>
+</p>
+
+<p>
+  <strong>返却予定時間:</strong>
+  <%= @rent.return_time.strftime('%H:%M') %>
+</p>
+
+<%= link_to '修正する', edit_rent_path(@rent) %> |
+<%= link_to '一覧へ戻る', rents_path %>

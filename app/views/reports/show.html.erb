@@ -1,0 +1,79 @@
+<% provide(:title, "詳細情報") %>
+<h2>詳細情報</h2>
+
+<table class="table">
+  <thead>
+    <th></th>
+    <th></th>
+  </thead>
+
+  <tbody>
+<tr>
+  <td><strong>属性</strong></td>
+  <td><%= @report.role %></td>
+</tr>
+
+<tr>
+  <td><strong>報告者名</strong></td>
+  <td><%= @report.name %></td>
+</tr>
+
+<tr>
+  <td><strong>緊急度</strong></td>
+  <td><%= @report.urgency %></td>
+</tr>
+
+<tr>
+  <td><strong>報告日</strong></td>
+  <td><%= @report.date %></td>
+</tr>
+
+<tr>
+  <td><strong>報告時間</strong></td>
+  <td>
+  <% if @report.time.present? %>
+    <%= @report.time.strftime("%H:%M") %>
+  <%end%>
+  </td>
+</tr>
+
+<tr>
+  <td><strong>機器種別</strong></td>
+  <td><%= @report.machine_name %></td>
+</tr>
+
+<tr>
+  <td><strong>機器番号</strong></td>
+  <td><%= @report.machine_number %></td>
+</tr>
+
+<tr>
+  <td><strong>不具合</strong></td>
+  <td><%= @report.problem %></td>
+</tr>
+
+<tr>
+  <td><strong>補足</strong></td>
+  <td><%= @report.problem_other %></td>
+</tr>
+
+<tr>
+  <td><strong>考えられる原因</strong></td>
+  <td><%= @report.cause %></td>
+</tr>
+
+<tr>
+  <td><strong>試した解決策</strong></td>
+  <td><%= @report.try_solution %></td>
+</tr>
+
+</tbody>
+</table>
+
+<%= render "show_file"%>
+
+<% if @report.operator.present? %>
+  <%= render 'operator_show', report: @report %>
+<% end %>
+
+<%= link_to '対応する', edit_report_path(@report), :class => "btn btn-info" %>

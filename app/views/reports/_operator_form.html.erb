@@ -1,0 +1,44 @@
+<!-- role -->
+<div class="form-group">
+  <label class="col-lg-2 control-label">ステータス</label>
+  <div class="col-lg-10">
+    <div class="radio">
+      <label>
+        <%= of.radio_button :status, "未対応", :id => 'not_yet' %>
+        <%= of.label 'not_yet', '未対応' %>
+        <%= of.radio_button :status, "対応中", :id => 'during' %>
+        <%= of.label 'during', '対応中' %>
+        <%= of.radio_button :status, "対応済", :id => 'finish' %>
+        <%= of.label 'finish', '対応済' %>
+      </label>
+    </div>
+  </div>
+</div>
+
+<!-- name -->
+<div class="form-group">
+  <label for="inputName" class="col-lg-2 control-label">対応者名</label>
+  <div class="col-lg-10">
+    <%= of.text_field :name,　class: "form-control", placeholder: "不具合を対応している人" %>
+  </div>
+</div>
+
+<!-- try_solution -->
+<div class="form-group">
+  <label for="textArea" class="col-lg-2 control-label">試した解決策</label>
+  <div class="col-lg-10">
+    <%= of.text_area :try_solution,　class: "form-control", size: "24x3" %>
+    <span class="help-block">これまで試した解決策</span>
+  </div>
+</div>
+
+<!-- solution -->
+<div class="form-group">
+  <label for="textArea" class="col-lg-2 control-label">解決策</label>
+  <div class="col-lg-10">
+    <%= of.text_area :solution,　class: "form-control", size: "24x3" %>
+    <span class="help-block">実際に成功した解決策</span>
+  </div>
+</div>
+
+    <%= of.hidden_field :id %>
