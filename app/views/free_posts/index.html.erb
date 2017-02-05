@@ -1,8 +1,9 @@
-<h3>フリー投稿一覧</h3>
+<h2>フリー投稿一覧</h2>
 <p>投稿された履歴が確認できます。</p>
   <table class="table">
   <thead>
   <tr>
+    <th>id</th>
     <th>名前</th>
     <th>日付</th>
     <th>タイトル</th>
@@ -14,10 +15,18 @@
   <tbody>
     <%@free_posts.each do |free_post| %>
         <tr>
+          <td><%= free_post.id %></td>
           <td><%= free_post.name %></td>
           <td><%= free_post.updated_at.strftime("%Y-%m-%d") %></td>
           <td><%= free_post.title %></td>
-          <td></td>
+
+
+          <% if free_post.post_operator.nil? %>
+          <td>未対応</td>
+          <% else %>
+          <td><%= free_post.post_operator.status %></td>
+          <% end %>
+
           <td><%= link_to "詳細",free_post %></td>
           <td><%= link_to "対応",edit_free_post_path(free_post) %></td>
           <td><%= link_to "削除",free_post, method: :delete,data:{confirm:"本当に削除しますか?" }%></td>

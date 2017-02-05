@@ -8,7 +8,6 @@ class ReportsController < ApplicationController
     @post_operator = PostOperator.all
   end
 
-
   # GET /reports
   # GET /reports.json
   def index

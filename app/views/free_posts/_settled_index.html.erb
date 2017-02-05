@@ -19,8 +19,11 @@
           <td><%= free_post.title %></td>
 
 
-          <td><% if free_post.post_operator.nil? %>未対応<% else %><%= free_post.post_operator.status %><% end %></td>
-
+          <% if free_post.post_operator.nil? %>
+          <td>未対応</td>
+          <% else %>
+          <td><%= free_post.post_operator.status %></td>
+          <% end %>
 
           <td><%= link_to "詳細",free_post %></td>
           <td><%= link_to "対応",edit_free_post_path(free_post) %></td>
