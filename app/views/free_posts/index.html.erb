@@ -24,7 +24,7 @@
           <% if free_post.post_operator.nil? %>
           <td>未対応</td>
           <% else %>
-          <td><%= free_post.post_operator.status %></td>
+          <td><%= free_post.post_operator.status %>(<%= free_post.post_operator.name %>)</td>
           <% end %>
 
           <td><%= link_to "詳細",free_post %></td>
