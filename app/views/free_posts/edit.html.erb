@@ -17,7 +17,7 @@
 </table>
 
 <%= form_for(@free_posts) do |f| %>
-  <%= fields_for @post_operator do |of| %>
+  <%= f.fields_for :post_operator, @free_posts.post_operator || @free_posts.build_post_operator do |of| %>
   <!-- status -->
   <div class="form-group">
     <label class="col-lg-2 control-label">ステータス</label>

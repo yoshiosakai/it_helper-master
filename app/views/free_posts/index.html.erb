@@ -14,23 +14,22 @@
 
   <tbody>
     <%@free_posts.each do |free_post| %>
+    <% if free_post.post_operator.nil? || free_post.post_operator.status!='対応済'%>
         <tr>
           <td><%= free_post.id %></td>
           <td><%= free_post.name %></td>
           <td><%= free_post.updated_at.strftime("%Y-%m-%d") %></td>
           <td><%= free_post.title %></td>
-
-
           <% if free_post.post_operator.nil? %>
           <td>未対応</td>
           <% else %>
           <td><%= free_post.post_operator.status %>(<%= free_post.post_operator.name %>)</td>
           <% end %>
-
           <td><%= link_to "詳細",free_post %></td>
           <td><%= link_to "対応",edit_free_post_path(free_post) %></td>
           <td><%= link_to "削除",free_post, method: :delete,data:{confirm:"本当に削除しますか?" }%></td>
         </tr>
+   <% end %>
    <% end %>
   </tbody>
 </table>
