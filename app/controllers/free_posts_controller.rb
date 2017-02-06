@@ -21,8 +21,23 @@ class FreePostsController < ApplicationController
   def create
     @free_posts = FreePost.new(post_params)
     @free_posts.save
-    redirect_to free_posts_path
+
+    if @free_posts.save
+      #redirect_to notification_index_url(@free_posts.urgency)
+      redirect_to :controller=>'notification', :action=>'index',:post_name=>@free_posts.name, :post_title=>@free_posts.title
+      #redirect_to root_path
+    else
+      render :new
+    end
+
   end
+
+
+
+
+
+
+
 
   def edit
   end
