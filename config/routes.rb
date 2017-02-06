@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get 'reports/download/download'=> 'reports#download'
 
   get 'notification/index'
+  get 'free_post_notification/index'
   get 'pc_model/index'
 
   resources 'pc_model', only: :index do

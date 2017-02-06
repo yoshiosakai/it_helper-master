@@ -7,6 +7,7 @@ class Report < ApplicationRecord
   has_many :attached_files
   accepts_nested_attributes_for :attached_files, allow_destroy: true
 
+  validates :name, presence:true
   validates :problem, presence:true
   validates :machine_name, presence:true
   validates :urgency, presence:true

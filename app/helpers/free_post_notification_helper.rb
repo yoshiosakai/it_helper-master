@@ -1,0 +1,2 @@
+module FreePostNotificationHelper
+end

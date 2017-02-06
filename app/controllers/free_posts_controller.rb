@@ -24,17 +24,13 @@ class FreePostsController < ApplicationController
 
     if @free_posts.save
       #redirect_to notification_index_url(@free_posts.urgency)
-      redirect_to :controller=>'notification', :action=>'index',:post_name=>@free_posts.name, :post_title=>@free_posts.title
+      redirect_to :controller=>'free_post_notification', :action=>'index',:name=>@free_posts.name, :title=>@free_posts.title
       #redirect_to root_path
     else
       render :new
     end
 
   end
-
-
-
-
 
 
 
